@@ -1,0 +1,88 @@
+.App {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh; 
+  background-image: url('bg.png'); 
+  background-size: cover; 
+  background-repeat: no-repeat;
+  background-position: center center;
+  padding: 20px;
+}
+
+/* Chat Box Container */
+.chat-box {
+  width: 400px;
+  height: 500px;
+  border: 1px solid #ccc;
+  overflow-y: scroll; 
+  margin-bottom: 10px;
+  background-color: rgba(255, 255, 255, 0.8); 
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Message Bubbles */
+.user, .bot {
+  padding: 10px;
+  margin: 5px;
+  border-radius: 20px;
+  max-width: 80%;
+  display: flex;
+  align-items: center;
+}
+
+.user {
+  background-color: #cce5ff; 
+  align-self: flex-end;
+  justify-content: flex-end; 
+  margin-left: auto;
+  display: inline-block;
+  border-radius: 20px;
+  padding: 10px;
+  max-width: 70%; 
+}
+
+.bot {
+  background-color: #f8d7da;
+  align-self: flex-start;
+  justify-content: flex-start; 
+  margin-right: auto; 
+  display: inline-block;
+  border-radius: 20px;
+  padding: 10px;
+  max-width: 70%; 
+  display: flex;
+  align-items: center;
+}
+
+.bot-icon {
+  width: 24px;
+  height: 24px;
+  margin-right: 10px; 
+}
+
+
+/* Input Field and Button */
+input {
+  width: 320px;
+  padding: 10px;
+  margin-right: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+button {
+  padding: 10px;
+  border-radius: 5px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0056b3;
+}

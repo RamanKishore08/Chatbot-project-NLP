@@ -1,0 +1,102 @@
+from flask import Flask, request, jsonify
+from flask_cors import CORS
+
+app = Flask(__name__)
+CORS(app)
+
+responses = {
+    'admission': "For admissions, please visit the Admissions Office or check our website for details or contact 9150131142.",
+    'course': "We offer a wide range of courses. Please visit the Course Catalog on our website.",
+    'fees': "Fee structures are available online or at the Accounts Office.",
+    'event': "You can find upcoming events on the Events page on our website.",
+    'hostel': "Hostel accommodation is available. Please visit the Hostel section on our website for details.",
+    'scholarship': "We offer several scholarships based on merit and need. Check the Scholarships page for more information.",
+    'library': "Our library is open from 8 AM to 8 PM. Visit the library section for online resources.",
+    'transport': "We provide bus services across multiple routes. Check the Transportation section on the website.",
+    'contact': "For contact details, please visit the Contact Us page or call us at 9150131142.",
+    'placement': "Our Placement Cell helps students secure jobs. Visit the Placement section for company details.",
+    'internship': "We provide internship opportunities with various companies. Visit the Internship section for details.",
+    'exams': "Examination schedules and results can be found on the Examinations section of our website.",
+    'alumni': "Our Alumni network is strong and supportive. Visit the Alumni page to learn more.",
+    'attendance': "Attendance policies are listed in the Student Handbook available on the website.",
+    'faculty': "Our experienced faculty is listed on the Faculty page of our website.",
+    'departments': "We have several departments including CSE, ECE, EEE, Mechanical, and Civil. Visit the Departments section.",
+    'sports': "Our college offers a variety of sports activities. Visit the Sports section for schedules.",
+    'labs': "We have state-of-the-art labs for all departments. Visit the Labs section for details.",
+    'cafeteria': "Our cafeteria offers a variety of food options. Visit the Campus Life section for more information.",
+    'rules': "College rules and regulations are available in the Student Handbook on the website.",
+    'results': "You can check your exam results in the Results section of our website.",
+    'calendar': "The academic calendar is available on the website under the Calendar section.",
+    'medical': "We have an in-campus medical facility. Check the Health Services page for details.",
+    'hostel fees': "Hostel fee details are available on the Hostel section of the website.",
+    'library hours': "The library is open from 8 AM to 8 PM every day.",
+    'hostel rules': "Hostel rules are listed in the Hostel Handbook on our website.",
+    'college timings': "The college operates from 9 AM to 4:30 PM on weekdays.",
+    'entrance exam': "Entrance exam details can be found on the Admissions page of our website.",
+    'eligibility': "Eligibility criteria for each course are listed on the Admissions page.",
+    'document submission': "Required documents for admission are listed on the Admissions page.",
+    'revaluation': "Revaluation requests can be submitted through the Examinations section of our website.",
+    'feedback': "Feedback forms are available on the Contact Us page of our website.",
+    'holidays': "The list of holidays is available in the Academic Calendar section.",
+    'faculty contact': "Faculty contact details can be found on the Faculty section of our website.",
+    'project work': "Project work guidelines are listed under the Academics section.",
+    'seminars': "Upcoming seminars are listed on the Events page of our website.",
+    'workshops': "We regularly conduct workshops. Check the Events section for upcoming ones.",
+    'cultural fest': "Details about the cultural fest can be found on the Events page.",
+    'tech fest': "Our tech fest details are listed in the Events section.",
+    'sports fest': "Details about the sports fest are available in the Events section.",
+    'certificates': "Certificates for courses and events can be collected from the Admin Office.",
+    'hostel complaints': "Hostel complaints can be submitted through the Hostel section on our website.",
+    'ragging': "Our college has a strict anti-ragging policy. Visit the Anti-Ragging page for details.",
+    'discipline': "Discipline guidelines are outlined in the Student Handbook on our website.",
+    'student clubs': "We have several student clubs. Visit the Clubs section to learn more.",
+    'student council': "The Student Council information is available in the Campus Life section.",
+    'campus tour': "You can schedule a campus tour through the Admissions page.",
+    'online courses': "We offer several online courses. Visit the Online Courses section for details.",
+    'student exchange': "We have student exchange programs with international universities. Check the International Programs section.",
+    'campus facilities': "Details about campus facilities are available in the Campus Life section.",
+    'transport routes': "Transport routes and schedules are available on the Transportation page.",
+    'bus timings': "Bus timings are listed on the Transportation page of our website.",
+    'canteen menu': "The canteen menu is available on the Campus Life section.",
+    'academic departments': "Visit the Departments section to know about the academic departments.",
+    'research': "Research opportunities and projects are listed under the Research section.",
+    'part-time courses': "We offer part-time courses. Check the Academics section for more information.",
+    'distance education': "Distance education programs are available. Visit the Distance Education section for details.",
+    'study abroad': "We have study abroad programs. Visit the International Programs section for details.",
+    'hostel accommodation': "Hostel accommodation is available for both boys and girls. Check the Hostel section.",
+    'sports teams': "We have various sports teams. Visit the Sports section for details.",
+    'student activities': "Details about student activities are available in the Campus Life section.",
+    'library membership': "Library membership details are available on the Library section.",
+    'research publications': "Research publications by faculty and students are listed in the Research section.",
+    'thesis submission': "Thesis submission guidelines are listed in the Research section.",
+    'career services': "Career services are provided by the Placement Cell. Check the Career Services section.",
+    'extracurricular activities': "Details on extracurricular activities are available in the Campus Life section.",
+    'parent-teacher meeting': "Details about parent-teacher meetings are available in the Academics section.",
+    'academic counseling': "Academic counseling services are provided. Visit the Counseling section for details.",
+    'financial aid': "We offer financial aid based on merit and need. Check the Financial Aid section.",
+    'emergency contacts': "Emergency contact numbers are listed on the Contact Us page.",
+    'student grievances': "Student grievances can be addressed through the Grievances section on our website.",
+    'volunteering': "Volunteering opportunities are available. Check the Campus Life section for details.",
+    'code of conduct': "The student code of conduct is listed in the Student Handbook.",
+    'student projects': "Guidelines for student projects are available in the Academics section.",
+    'placement process': "The placement process is outlined in the Placement section.",
+    'training programs': "Training programs for students are listed in the Academics section.",
+    'industrial visits': "Industrial visit details are available in the Academics section.",
+    'hostel fees payment': "Hostel fees can be paid online through the Hostel section.",
+    'online library access': "Online library access details are available in the Library section.",
+    'lost and found': "Lost and found information is available in the Admin Office.",
+    'campus security': "Campus security details are listed in the Campus Life section.",
+    'guest lectures': "Details about guest lectures are available in the Events section.",
+    'college magazine': "The college magazine can be downloaded from the Publications section.",
+    'default': "Sorry, I could not understand your question. Please try again."
+}
+
+@app.route('/enquiry', methods=['POST'])
+def enquiry():
+    data = request.get_json()
+    question = data.get('question', '').lower()
+    answer = next((responses[key] for key in responses if key in question), responses['default'])
+    return jsonify({"answer": answer})
+
+if __name__ == '__main__':
+    app.run(debug=True)
