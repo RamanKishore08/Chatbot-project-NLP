@@ -11,7 +11,7 @@ function App() {
         const userMessage = { sender: 'user', text: input };
         setMessages([...messages, userMessage]);
 
-        const response = await fetch(' http://127.0.0.1:5000/enquiry', {
+        const response = await fetch('https://chatbot-api-2-bdci.onrender.com/enquiry', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ question: input })
