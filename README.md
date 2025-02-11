@@ -29,7 +29,7 @@ Run **Backend** first, then start **Frontend**.
 
 ### Clone the Repository  
 ```bash
-git clone https://github.com/RamanKishore08/Resume-Evaluator.git
+git clone https://github.com/RamanKishore08/Chatbot-project-NLP.git
 ```
 ### Open file directory
 ```bash
