@@ -1,76 +1,76 @@
-Here’s the README.md file code:
-
 # 🤖 Chatbot Web Application  
 
 Welcome to the **Chatbot Web Application**, a seamless integration of **React**, **Flask**, and **REST API** to deliver an interactive chatbot experience.  
 
 ## 🚀 Features  
-- 💬 Real-time chatbot responses  
+- 💬 Real-time chatbot responses for college admission.
 - ⚡ Fast and efficient frontend with React  
 - 🌐 Backend powered by Flask  
 - 🔗 REST API integration  
 - 📦 Easy installation and setup  
 
 ## 🛠️ Tech Stack  
-![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)  
-![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)  
-![React](https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=react&logoColor=black)  
-![REST](https://img.shields.io/badge/REST-FF5733?style=for-the-badge&logo=postman&logoColor=white)  
-
-## 📥 Installation  
-
-### 🔹 Frontend Setup  
-1. Open **Command Prompt**  
-2. Navigate to the project folder:  
-   ```sh
-   cd chatbot-project
-
-3. Go to the frontend directory:
-
-cd frontend
-
-
-4. Install dependencies:
-
-npm install axios
-
-
-5. Start the frontend:
-
-npm start
+![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
+![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
+![Flask](https://img.shields.io/badge/Flask-000000?style=for-the-badge&logo=flask&logoColor=white)
+![NLP](https://img.shields.io/badge/NLP-FF6F00?style=for-the-badge&logo=ai&logoColor=white)
 
 
 
-🔹 Backend Setup
+---
 
-1. Open Command Prompt again
+This project offers a comprehensive solution for building resumes, evaluating scores with suggestions, and filtering the best resumes efficiently. 
+It streamlines the resume management process with advanced features.
 
+---
 
-2. Navigate to the project folder:
+## 🛠️ Local Setup  
+Run **Backend** first, then start **Frontend**.
 
-cd chatbot-project
-
-
-3. Move to the backend directory:
-
+### Clone the Repository  
+```bash
+git clone https://github.com/RamanKishore08/Resume-Evaluator.git
+```
+### Open file directory
+```bash
+cd Resume-Evaluator
+```
+### Open Frontend
+```bash
 cd backend
-
-
-4. Install Flask:
-
+```
+### Install necessary python libraries
+```bash
 pip install flask
-
-
-5. Run the backend server:
-
+```
+### Run Flask Backend
+```bash
 python app.py
+```
+### Open Frontend
+```bash
+cd frontend
+```
+### Install the node modules
+```bash
+npm install
+```
+
+### Install the libraries
+```bash
+npm install react react-dom
+```
+
+### Run the Frontend
+```bash
+npm start
+```
 
 
+## 🎯 Usage
 
-🎯 Usage
+Once the frontend and backend are running, open the web browser and start interacting with the chatbot.(Since it is deployed with less RAM in onrender so the Response will be slow(30-40 seconds).
 
-Once the frontend and backend are running, open the web browser and start interacting with the chatbot.
-
-📌 Contributing
+## 📌 Contributing
 
 Feel free to fork the repository and contribute to enhancing the chatbot.
