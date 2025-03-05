@@ -1,0 +1,9 @@
+axios
+emoji-picker-react
+lucide-react
+react
+react-dom
+react-icons
+react-router-dom
+react-speech-recognition
+regenerator-runtime
